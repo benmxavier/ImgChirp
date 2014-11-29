@@ -7,10 +7,10 @@ var util = require('util'),
 db = db.connect('db', ['sentiments']);
 //config
 var config = {
-    consumer_key: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    access_token_key: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    access_token_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    consumer_key: 'Z9gC14MvoMmth5ddxm0D5MPXB',
+    consumer_secret: '10lZJg4pX2IqoIbBNOGip3OBQQhwLkFPW05D7wg0dPobQTgcZP',
+    access_token_key: '1247773837-vRC0vvkN6P2kRgLXjOFpfgPrt1vddAHgtFQ5fhH',
+    access_token_secret: '9TbJwAkCkVnz6XWfSOp1I0s8i8yyIoubt898k5v3CYMll'
 };
 
 module.exports = function (text, callback) {
