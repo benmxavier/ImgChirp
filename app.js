@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-app.listen('3000');
+//app.listen('3000');
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
-
+/*
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -62,6 +62,6 @@ app.use(function(err, req, res, next) {
     });
     next();
 });
-
+*/
 
 module.exports = app;
