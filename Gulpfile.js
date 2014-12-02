@@ -32,7 +32,22 @@ gulp.task('lint', function() {
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
+function getGPS() // gets the users current position
+{
+    navigator.geolocation.getCurrentPosition(successGPS, errorGPS
+ {enableHighAccuracy : true});
+}
+function successGPS(position) // stores the users position to be used later
+{
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var curHTML = $('#gps_coords').html() + "lat="+lat + ",lon="+lon+"<br>";
+     $('#gps_coords').html(curHTML);
+}
 
-
+function errorGPS() // failsafe incase of fatal error
+{
+     alert('Cannot find Location');
+}
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['lint','nodemon', 'watch']);
