@@ -10,7 +10,9 @@ router.get('/', function (req, res) {
 
 router.post('/search', function (req, res) {
     twitterSearch(req.body.search, function (data) {
-        res.json(data);
+        console.log("Route file is working");
+        //console.log(data);
+        res.json(data.statuses);
     });
 });
 

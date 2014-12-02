@@ -1,8 +1,14 @@
+h1 {
+   font: 14px"Lucida Grande", Helvetica, Arial, sans-serif;
+   font-size: 36px;
+}
+
 body {
   padding: 50px;
   font: 14px"Lucida Grande", Helvetica, Arial, sans-serif;
   background: #eee;
 }
+
 a {
   color: #00B7FF;
 }
@@ -11,6 +17,7 @@ input {
   padding: 9px;
   font-size: 17px;
 }
+
 .results {
   display: none;
 }

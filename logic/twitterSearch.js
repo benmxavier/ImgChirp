@@ -17,16 +17,23 @@ module.exports = function (text, callback) {
     var twitterClient = new twitter(config);
     var response = [], dbData = []; // to store the tweets and sentiment
     
-    twitterClient.get('search/tweets', text, function (data) {
+    //console.log("Hitting the twitter client.");   
+    //console.log(text);
+    
+    twitterClient.get('search/tweets', { q: text + ' since:2014-1-1', count: 1 }, function (err, data, response) {
+       console.log(data);
+       //console.log(err);        
+
         for (var i = 0; i < data.statuses; i++) {
-            var resp = {};
-            
+            var resp = {};            
+
             resp.tweet = data.statuses[i];
             resp.sentiment = sentimentAnalysis(data.statuses[i].text);
             dbData.push({
                 tweet: resp.tweet.text,
                 score: resp.sentiment.score
             });
+         //   console.log("This tweet is " + resp.tweet.txt);
             response.push(resp);
         }        ;
         db.sentiments.save(dbData);
