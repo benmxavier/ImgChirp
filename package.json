@@ -20,9 +20,9 @@
     "diskdb": "^0.1.14",
     "ejs": "~0.8.5",
     "express": "~4.0.0",
-    "instagram-node-lib": "^0.1.1",
+    "instagram-node-lib": "~0.1.1",
     "morgan": "~1.0.0",
-    "sentiment": "^1.0.2",
+    "sentiment": "~1.0.2",
     "static-favicon": "~1.0.0",
     "twit": "^1.1.18"
   }
