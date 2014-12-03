@@ -20,11 +20,11 @@ module.exports = function (text, callback) {
     //console.log("Hitting the twitter client.");   
     //console.log(text);
     
-    twitterClient.get('search/tweets', { q: text + ' since:2014-1-1', count: 1 }, function (err, data, response) {
+    twitterClient.get('search/tweets', { q: text + ' since:2014-1-1', count: 1 }, function (err, data, resp) {
        console.log(data);
-       //console.log(err);        
+       console.log(err);        
 
-        for (var i = 0; i < data.statuses; i++) {
+        for (var i = 0; i < data.statuses.length; i++) {
             var resp = {};            
 
             resp.tweet = data.statuses[i];
@@ -33,9 +33,10 @@ module.exports = function (text, callback) {
                 tweet: resp.tweet.text,
                 score: resp.sentiment.score
             });
-         //   console.log("This tweet is " + resp.tweet.txt);
+            console.log('This tweet is: ' + resp.tweet.text);
+            console.log('The sentiment score is: ' + resp.sentiment.score);
             response.push(resp);
-        }        ;
+        };
         db.sentiments.save(dbData);
         callback(response);
     });

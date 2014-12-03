@@ -1,18 +1,22 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     // handle the form submit
     $('#searchText').on('keypress', function (e) {
         if (e.which == 13 || e.keyCode == 13) {
-            if ($(this).val().trim().length > 0) {
+            var me = this;
+            if ($(me).val().trim().length > 0) {
                 // initiate an Ajax call to send the data
-                fireAJAX($(this).val().trim());
+                console.log($(me).val().trim() + 'is being sent through ajax');
+                fireAJAX($(me).val().trim());
             }
         }
     });
     
     function fireAJAX(text) {
+        console.log('In App.js: ' + text);
         $.ajax({
-            url: '/search',
             type: 'POST',
+            url: '/search',
             data: {
                 search: text
             },
@@ -27,7 +31,9 @@
     }
     
     function parseData(data) {
+        console.log('before disable state');
         disableState();
+        
         var html = '';
         for (var i = 0; i < data.length; i++) {
             var s = data[i].sentiment,
@@ -76,26 +82,26 @@
         // Figure out if we're getting a template, or if we need to
         // load the template - and be sure to cache the result.
         var fn = !/\W/.test(str) ?
-        cache[str] = cache[str] ||
-        tmpl(document.getElementById(str).innerHTML) :
+      cache[str] = cache[str] ||
+      tmpl(document.getElementById(str).innerHTML) :
  
-        // Generate a reusable function that will serve as a template
-        // generator (and which will be cached).
-        new Function("obj",
-            "var p=[],print=function(){p.push.apply(p,arguments);};" +
+    // Generate a reusable function that will serve as a template
+    // generator (and which will be cached).
+    new Function("obj",
+      "var p=[],print=function(){p.push.apply(p,arguments);};" +
  
-        // Introduce the data as local variables using with(){}
-        "with(obj){p.push('" +
+      // Introduce the data as local variables using with(){}
+      "with(obj){p.push('" +
  
-        // Convert the template into pure JavaScript
-        str
-        .replace(/[\r\t\n]/g, " ")
-        .split("{{").join("\t")// modified
-        .replace(/((^|\}\})[^\t]*)'/g, "$1\r")// modified
-        .replace(/\t=(.*?)}}/g, "',$1,'")// modified
-        .split("\t").join("');")
-        .split("}}").join("p.push('")// modified
-        .split("\r").join("\\'") + "');}return p.join('');");
+      // Convert the template into pure JavaScript
+      str
+      .replace(/[\r\t\n]/g, " ")
+      .split("{{").join("\t")// modified
+      .replace(/((^|\}\})[^\t]*)'/g, "$1\r")// modified
+      .replace(/\t=(.*?)}}/g, "',$1,'")// modified
+      .split("\t").join("');")
+      .split("}}").join("p.push('")// modified
+      .split("\r").join("\\'") + "');}return p.join('');");
         
         // Provide some basic currying to the user
         return data ? fn(data) : fn;
