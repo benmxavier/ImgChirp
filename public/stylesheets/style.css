@@ -1,25 +1,27 @@
 h1 {
-   font: 14px"Lucida Grande", Helvetica, Arial, sans-serif;
+   font: 14px, Impact, Charcoal, sans-serif;
    font-size: 36px;
+   color: white;
 }
 
 body {
   padding: 50px;
-  font: 14px"Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #eee;
+  font: 14px, Impact, Charcoal, sans-serif;
+  background: #0099FF;
 }
 
 a {
-  color: #00B7FF;
+  color: #0099FF;
 }
 input {
-  width: 98%;
+  width: 50%;
   padding: 9px;
-  font-size: 17px;
+  font-size: 13px;
 }
 
 .results {
   display: none;
+  color: white;
 }
 .error {
   color: red;
@@ -41,7 +43,7 @@ input {
   padding-left: 21px;
 }
 article {
-  background: #fff;
+  background: #33CCFF;
   display: block;
   padding: 18px;
   border: 1px solid #eee;
