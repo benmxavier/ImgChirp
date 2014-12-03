@@ -20,7 +20,7 @@ module.exports = function (text, callback) {
     //console.log("Hitting the twitter client.");   
     //console.log(text);
     
-    twitterClient.get('search/tweets', { q: text + ' since:2014-1-1', count: 1 }, function (err, data, resp) {
+    twitterClient.get('search/tweets', { q: text + ' since:2014-1-1', geocode:'44.4735078,-73.2055553,10mi', count: 1 }, function (err, data, resp) {
        console.log(data);
        console.log(err);        
 
@@ -41,22 +41,5 @@ module.exports = function (text, callback) {
         callback(response);
     });
 }
-/*
-function getGPS() // gets the users current position
-{
-    navigator.geolocation.getCurrentPosition(successGPS, errorGPS
- {enableHighAccuracy : true});
-}
-function successGPS(position) // stores the users position to be used later
-{
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    var curHTML = $('#gps_coords').html() + "lat="+lat + ",lon="+lon+"<br>";
-     $('#gps_coords').html(curHTML);
-}
 
-function errorGPS() // failsafe incase of fatal error
-{
-     alert('Cannot find Location');
-}
-*/
+
